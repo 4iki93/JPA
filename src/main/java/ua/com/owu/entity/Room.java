@@ -7,11 +7,11 @@ import java.util.List;
 @Entity
 public class Room {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int  id;
+    private int id;
     private int roomNumber;
-
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<User> users = new ArrayList<>();
 

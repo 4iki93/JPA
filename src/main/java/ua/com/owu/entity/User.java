@@ -7,18 +7,20 @@ import java.util.List;
 
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String surname;
+    private  int id;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "users")
-    private List<Room> rooms = new ArrayList<>();
+    private String name;
+    private String  surname;
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "users")
+     private List<Room> rooms = new ArrayList<>();
+
 
     public User() {
     }
-
 
     public User(String name, String surname) {
         this.name = name;
@@ -30,6 +32,39 @@ public class User {
         this.surname = surname;
         this.rooms = rooms;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
 
     @Override
     public String toString() {
