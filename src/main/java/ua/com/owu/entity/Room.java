@@ -13,7 +13,12 @@ public class Room {
     private int id;
     private int roomNumber;
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "room_user",inverseJoinColumns =@JoinColumn(name = "users_id"),joinColumns = @JoinColumn(name = "rooms_id")) //зберегти  запамяти немає
     private List<User> users = new ArrayList<>();
+
+
+
+
 
     public Room() {
     }

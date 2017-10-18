@@ -21,14 +21,13 @@ public class Main {
 
 
         List<Room> rooms = new ArrayList<>();
-        rooms.add(new Room (12));
-        rooms.add(new Room (45));
-        rooms.add(new Room (86));
+        rooms.add(new Room (13));
+        rooms.add(new Room (41));
+        rooms.add(new Room (15));
         User user = manager.find(User.class, 1);
         user.setRooms(rooms);
         manager.persist(user);
         manager.getTransaction().commit();
-
 
 
         manager.close();

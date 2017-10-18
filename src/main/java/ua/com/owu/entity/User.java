@@ -15,8 +15,13 @@ public class User {
     private String name;
     private String  surname;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "users")
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY/*mappedBy = "users"*/ )
+    @JoinTable(name = "room_user",joinColumns =@JoinColumn(name = "users_id"),inverseJoinColumns = @JoinColumn(name = "rooms_id"))
      private List<Room> rooms = new ArrayList<>();
+
+
+
+
 
 
     public User() {
